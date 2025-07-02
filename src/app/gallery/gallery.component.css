@@ -1,17 +1,15 @@
-.gallery {
-	background-color: #56f5e5;
-	color: #fff;
-}
-
-.row-card {
+.row-card-scroll {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  overflow-x: auto;
   gap: 20px;
-  padding: 1rem 0;
+  padding: 1rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
 photo-card {
-  width: 100%;
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  width: 90%;
   max-width: 400px;
 }
