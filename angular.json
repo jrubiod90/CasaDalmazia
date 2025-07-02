@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "casa-rural": {
+    "casa-dalmazia": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -16,7 +16,7 @@
             "allowedCommonJsDependencies": [
               "lodash"
            ],
-            "outputPath": "dist/casa-rural",
+            "outputPath": "docs",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -48,7 +48,8 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+			  "baseHref": "/CasaDalmazia/"
             },
             "development": {
               "buildOptimizer": false,
@@ -65,10 +66,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "casa-rural:build:production"
+              "browserTarget": "casa-dalmazia:build:production"
             },
             "development": {
-              "browserTarget": "casa-rural:build:development"
+              "browserTarget": "casa-dalmazia:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +77,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "casa-rural:build"
+            "browserTarget": "casa-dalmazia:build"
           }
         },
         "test": {
