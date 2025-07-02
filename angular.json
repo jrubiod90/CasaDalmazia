@@ -93,9 +93,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+			  "https://unpkg.com/photoswipe@5/dist/photoswipe.css"
             ],
-            "scripts": []
+            "scripts": [
+			  "https://unpkg.com/photoswipe@5/dist/photoswipe.umd.min.js"
+			]
           }
         },
         "deploy": {

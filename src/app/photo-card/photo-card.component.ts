@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, HostListener } from '@angular/core';
 import { Lightbox } from 'ngx-lightbox';
 
 @Component({
@@ -14,6 +14,10 @@ export class PhotoCardComponent implements OnInit {
   currentIndex = 0;
   cardPhoto!: string;
   album: Array<{ src: string; caption: string; thumb: string }> = [];
+
+  private touchStartX = 0;
+  private touchEndX = 0;
+  private minSwipeDistance = 50; // distancia mínima para considerar swipe
 
   constructor(private lightbox: Lightbox) {}
 
@@ -38,5 +42,27 @@ export class PhotoCardComponent implements OnInit {
   nextImage() {
     this.currentIndex = (this.currentIndex + 1) % this.images.length;
     this.cardPhoto = this.images[this.currentIndex];
+  }
+
+  // Detectar cuando comienza el toque
+  onTouchStart(event: TouchEvent) {
+    this.touchStartX = event.changedTouches[0].screenX;
+  }
+
+  // Detectar cuando termina el toque y decidir si es swipe
+  onTouchEnd(event: TouchEvent) {
+    this.touchEndX = event.changedTouches[0].screenX;
+    this.handleSwipeGesture();
+  }
+
+  handleSwipeGesture() {
+    const distance = this.touchEndX - this.touchStartX;
+    if (Math.abs(distance) > this.minSwipeDistance) {
+      if (distance > 0) {
+        this.prevImage();
+      } else {
+        this.nextImage();
+      }
+    }
   }
 }
