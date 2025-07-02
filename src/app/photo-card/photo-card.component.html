@@ -1,0 +1,12 @@
+<article class="card">
+  <!-- Imagen visible y clicable -->
+  <div class="card-image" (click)="openGallery()" [style.background-image]="'url(' + cardPhoto + ')'"></div>
+
+  <div class="card-content">
+    <h4>{{ title }}</h4>
+    <p>{{ content }}</p>
+  </div>
+
+  <div class="prev-arrow" *ngIf="images.length > 1" (click)="prevImage()">&larr;</div>
+  <div class="next-arrow" *ngIf="images.length > 1" (click)="nextImage()">&rarr;</div>
+</article>

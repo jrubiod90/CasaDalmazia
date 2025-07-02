@@ -1,0 +1,18 @@
+<div class="home py-5 text-center">
+  <div class="container-center">
+    <h1 class="fw-bold">Casa Dalmazia</h1>
+    <h4 class="mb-3">Appartamenti turistici</h4>
+    <p class="text-header px-3" style="max-width: 700px; margin: 0 auto; line-height: 1.6;">
+      Scopri la fuga perfetta nel cuore di Cuore della Città, dove il fascino rustico incontra il comfort moderno. I nostri appartamenti ti offrono un'esperienza autentica, accogliente e rilassante, ideale per ogni tipo di viaggiatore.
+    </p>
+    <div class="row-buttons-container mt-4 d-flex justify-content-center flex-wrap">
+      <div class="pe-2 ps-4 mb-3 m-0">
+        <button *ngIf="localBooking" class="btn-small" aria-label="Prenota ora" (click)="scrollTo('booking')">Prenota ora</button>
+        <button *ngIf="!localBooking" class="btn-small" aria-label="Prenota ora" (click)="openLinkInNewTab()">Prenota ora</button>
+      </div>
+      <div class="ps-2 m-0 mb-3">
+        <button class="btn-white" aria-label="Scopri di più" (click)="scrollTo('gallery')">Scopri di più</button>
+      </div>
+    </div>
+  </div>
+</div>
