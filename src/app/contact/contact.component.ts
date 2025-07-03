@@ -28,20 +28,20 @@ export class ContactComponent {
       phone: this.phone,
       email: this.email,
       message: this.message,
-      subject: this.subject
+      subject: "Richiesta generica Casa Dalmazia"
     };
 
   this.http.post('https://emailapi-production-d4cd.up.railway.app/email/send-email', datos).subscribe({
-    next: (respuesta) => {
-      console.log('Correo electrónico enviado con éxito', respuesta);
-      this.isError = false;
-      this.messageText = 'Mensaje enviado, en breve nos pondremos en contacto contigo.';
-    },
-    error: (error) => {
-      console.error('Error al enviar el correo electrónico', error);
-      this.isError = true;
-      this.messageText = 'Ha habido un error, prueba a llamarnos.';
-    },
+next: (response) => {
+  console.log('Email inviata con successo', response);
+  this.isError = false;
+  this.messageText = 'Messaggio inviato, ti contatteremo al più presto.';
+},
+error: (error) => {
+  console.error('Errore durante l\'invio dell\'email', error);
+  this.isError = true;
+  this.messageText = 'Si è verificato un errore, prova a chiamarci.';
+},
   });
 
   this.showMessage = true;

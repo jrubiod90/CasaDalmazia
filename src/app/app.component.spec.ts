@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'casa-rural'`, () => {
+  it(`should have as title 'casa-dalmazia'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('casa-rural');
+    expect(app.title).toEqual('casa-dalmazia');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('casa-rural app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('casa-dalmazia app is running!');
   });
 });
