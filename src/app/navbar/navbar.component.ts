@@ -1,4 +1,5 @@
-import {Component, HostListener} from "@angular/core";
+declare const bootstrap: any;
+import { Component, HostListener } from "@angular/core";
 
 @Component({
 	selector: "navbar",
@@ -10,14 +11,14 @@ export class NavbarComponent {
 	isSmallScreen = window.innerWidth <= 992;
 	activeSection: string | null = null;
 
-menuItems = [
-  {label: "INIZIO", link: "#home"},
-  {label: "CHI SIAMO", link: "#about"},
-  {label: "FOTO", link: "#gallery"},
-  {label: "ATTIVITÀ", link: "#activities"},
-  {label: "SERVIZI", link: "#services"},
-  {label: "CONTATTO", link: "#contact"},
-];
+	menuItems = [
+		{ label: "INIZIO", link: "#home" },
+		{ label: "CHI SIAMO", link: "#about" },
+		{ label: "FOTO", link: "#gallery" },
+		{ label: "ATTIVITÀ", link: "#activities" },
+		{ label: "SERVIZI", link: "#services" },
+		{ label: "CONTATTO", link: "#contact" },
+	];
 
 	@HostListener("window:resize", ["$event"])
 	onResize(event: any) {
@@ -26,7 +27,6 @@ menuItems = [
 
 	@HostListener("window:scroll", [])
 	onWindowScroll() {
-		// Determine the active section based on scrolling
 		const sections = ["about", "gallery", "activities", "services", "contact"];
 		const scrollPosition = window.scrollY;
 		let activeSection: string | null = null;
@@ -36,19 +36,34 @@ menuItems = [
 			if (element) {
 				const offsetTop = element.offsetTop;
 				if (scrollPosition >= offsetTop - 120) {
-				activeSection = section;
+					activeSection = section;
 				}
 			}
 		}
 
 		this.activeSection = activeSection;
-
-		// Check if the user has scrolled and show menu
 		this.showMenu = window.scrollY > 90;
 	}
 
 	constructor() {
-		// Trigger the initial check for screen size
-		this.onResize({target: {innerWidth: window.innerWidth}});
+		this.onResize({ target: { innerWidth: window.innerWidth } });
+	}
+
+	closeOffcanvas() {
+		const offcanvasElement = document.getElementById("offcanvasScrolling");
+		const backdrop = document.querySelector(".offcanvas-backdrop");
+
+		if (offcanvasElement) {
+			// Bootstrap 5 Offcanvas instance
+			const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
+			if (bsOffcanvas) {
+				bsOffcanvas.hide();
+			}
+		}
+
+		// Remove backdrop manually (optional fallback)
+		if (backdrop) {
+			backdrop.remove();
+		}
 	}
 }
