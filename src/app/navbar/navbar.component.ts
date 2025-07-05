@@ -12,12 +12,12 @@ export class NavbarComponent {
 	activeSection: string | null = null;
 
 	menuItems = [
-		{ label: "INIZIO", link: "#home" },
+		{ label: "HOMEPAGE", link: "#home" },
 		{ label: "CHI SIAMO", link: "#about" },
 		{ label: "FOTO", link: "#gallery" },
 		{ label: "ATTIVITÀ", link: "#activities" },
 		{ label: "SERVIZI", link: "#services" },
-		{ label: "CONTATTO", link: "#contact" },
+		{ label: "CONTATTi", link: "#contact" },
 	];
 
 	@HostListener("window:resize", ["$event"])
