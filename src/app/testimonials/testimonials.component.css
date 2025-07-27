@@ -29,6 +29,21 @@
 	background-position: center center;
 }
 
+.opinion-text small {
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+.opinion-text p {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.stars-img {
+  height: 25px;             /* más pequeño */
+  margin-left: 6px;         /* pequeño espacio desde el nombre */
+  vertical-align: middle;   /* alinea con el texto */
+}
+
 @media screen and (max-width: 1112px) {
 	.rounded-image {
 		width: 200px;
@@ -71,17 +86,17 @@
 }
 
 .img1 {
-	background-image: url("../../assets/images/elisaPadoan.jpg");
+	background-image: url("../../assets/images/DOSANA/3.avif");
 }
 
 .img2 {
-	background-image: url("../../assets/images/aleOrtu.jpg");
+	background-image: url("../../assets/images/SEVENTE/5.avif");
 }
 
 .img3 {
-	background-image: url("../../assets/images/jorgeRubio.jpg");
+	background-image: url("../../assets/images/DOSANA/5.avif");
 }
 
 .img4 {
-	background-image: url("../../assets/images/dani.jpg");
+	background-image: url("../../assets/images/SEVENTE/12.avif");
 }
