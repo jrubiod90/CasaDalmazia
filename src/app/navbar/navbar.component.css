@@ -1,6 +1,6 @@
 nav {
-	background-color: #333;
-	color: #fff;
+	background-color: #56f5e5;
+	color: #333;
 	height: 80px;
 	position: fixed;
 	top: 0;
@@ -29,16 +29,16 @@ a {
 	text-decoration: none;
 	margin: 0 10px;
 	padding: 5px 10px;
-	color: #fff;
+	color: #333;
 }
 
 .active {
-	color: #56f5e5;
+	color: #fff;
 }
 
 li a:hover,
 .fa-solid:hover {
-	color: #56f5e5;
+	color: #fff;
 	cursor: pointer;
 }
 
@@ -49,7 +49,7 @@ li a:hover,
 }
 
 .offcanvas {
-	background-color: #333;
+	background-color: #56f5e5;
 	color: #fff;
 }
 
@@ -58,7 +58,22 @@ li a:hover,
 }
 
 .btn-close-white {
-	color: #fff;
+	color: #333;
 	margin-top: 5px;
 	font-size: 30px;
+}
+
+nav {
+  align-items: center; /* centra verticalmente los elementos */
+  padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+  margin-right: auto; /* empuja el resto del contenido a la derecha */
+}
+
+.logo-img {
+  height: 80px; /* más alto que el tamaño por defecto */
+  width: auto; /* mantiene la proporción */
+  object-fit: contain;
 }

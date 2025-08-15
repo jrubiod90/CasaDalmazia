@@ -17,7 +17,7 @@ export class NavbarComponent {
 		{ label: "FOTO", link: "#gallery" },
 		{ label: "ATTIVITÀ", link: "#activities" },
 		{ label: "SERVIZI", link: "#services" },
-		{ label: "CONTATTi", link: "#contact" },
+		{ label: "CONTATTI", link: "#contact" },
 	];
 
 	@HostListener("window:resize", ["$event"])

@@ -4,7 +4,7 @@
 
   <div class="card-content">
     <h4>{{ title }}</h4>
-    <p>{{ content }}</p>
+    <p class="card-text" [innerHTML]="content"></p>
   </div>
 
   <div class="prev-arrow" *ngIf="images.length > 1" (click)="prevImage()">&larr;</div>

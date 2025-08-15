@@ -3,8 +3,11 @@
   overflow-x: auto;
   gap: 20px;
   padding: 1rem;
+
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+
+  justify-content: flex-start; /* móvil: empezar desde la izquierda */
 }
 
 photo-card {
@@ -12,4 +15,11 @@ photo-card {
   scroll-snap-align: center;
   width: 90%;
   max-width: 400px;
+}
+
+/* Desktop: centrar la galería si hay espacio */
+@media (min-width: 768px) {
+  .row-card-scroll {
+    justify-content: center;
+  }
 }

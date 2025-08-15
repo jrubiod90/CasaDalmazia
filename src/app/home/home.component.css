@@ -42,3 +42,8 @@
 	text-transform: uppercase;
 	letter-spacing: 2px;
 }
+
+.logo-title {
+  max-height: 280px; /* tamaño del logo */
+  margin-bottom: 15px; /* espacio entre logo y título */
+}
