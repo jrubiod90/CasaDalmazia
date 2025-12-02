@@ -36,7 +36,13 @@ import { BookingComponent } from './booking/booking.component';
 import { PaymentComponent } from './booking/payment/payment.component';
 import { InvoiceImgComponent } from './booking/payment/invoice-img/invoice-img.component';
 import { LightboxModule } from 'ngx-lightbox';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -73,7 +79,14 @@ import { LightboxModule } from 'ngx-lightbox';
     ReactiveFormsModule,
     MatStepperModule,
     MatIconModule,
-    LightboxModule
+    LightboxModule,
+    TranslateModule.forRoot({
+  loader: {
+    provide: TranslateLoader,
+    useFactory: HttpLoaderFactory,
+    deps: [HttpClient]
+  }
+})
   ],
   providers: [ScrollService, DatePipe],
   bootstrap: [AppComponent]

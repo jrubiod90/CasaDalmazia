@@ -2,23 +2,23 @@
   <div class="container-center pt-0">
     <div class="row text-start justify-content-center">
       <section class="left col-md-5 col-sm-10">
-        <h3>Servizi disponibili:</h3>
+        <h3>{{ 'SERVICE_AVAILABLE_TEXT' | translate }}</h3>
         <ul class="custom-list">
-          <li><i class="fa-solid fa-check" aria-label="Checkmark"></i> Wifi</li>
-          <li><i class="fa-solid fa-check" aria-label="Checkmark"></i> Cucina completamente attrezzata</li>
-          <li><i class="fa-solid fa-check" aria-label="Checkmark"></i> Lavatrice</li>
-          <li><i class="fa-solid fa-check" aria-label="Checkmark"></i> Televisione</li>
-          <li><i class="fa-solid fa-check" aria-label="Checkmark"></i> Parcheggio gratuito (nelle vicinanze)</li>
+          <li><i class="fa-solid fa-check" aria-label="Checkmark"></i> {{ 'WIFI_TEXT' | translate }}</li>
+          <li><i class="fa-solid fa-check" aria-label="Checkmark"></i> {{ 'KITCHEN_TEXT' | translate }}</li>
+          <li><i class="fa-solid fa-check" aria-label="Checkmark"></i> {{ 'WASHING_MACHINE_TEXT' | translate }}</li>
+          <li><i class="fa-solid fa-check" aria-label="Checkmark"></i> {{ 'TV_TEXT' | translate }}</li>
+          <li><i class="fa-solid fa-check" aria-label="Checkmark"></i> {{ 'PARKING_TEXT' | translate }}</li>
         </ul>
-        <button *ngIf="localBooking" class="btn-medium mb-5" aria-label="Prenota ora" (click)="scrollTo('booking')">Prenota ora</button>
-        <button *ngIf="!localBooking" class="btn-medium mb-5" aria-label="Prenota ora" (click)="openLinkInNewTab()">Prenota ora</button>
+      <!--   <button *ngIf="localBooking" class="btn-medium" aria-label="Prenota ora" (click)="scrollTo('booking')">{{ 'BOOK_NOW' | translate }}</button> -->
+          <button class="btn-medium" aria-label="Prenota ora" (click)="scrollTo('contact')">{{ 'BOOK_NOW' | translate }}</button>
       </section>
 
       <section class="right col-md-5 col-sm-10">
-        <h3>Come raggiungerci:</h3>
+        <h3> {{ 'HOW_TO_REACH_US_TEXT' | translate }}</h3>
         <ul class="custom-list">
-          <li><i class="fa-solid fa-check" aria-label="Checkmark"></i> In autobus: La linea 85 Arriva Veneto collega direttamente l’aeroporto di Venezia a Sottomarina. La fermata del bus è a pochi passi da casa.</li>
-          <li><i class="fa-solid fa-check" aria-label="Checkmark"></i> In auto: Facilmente raggiungibile in auto, con possibilità di parcheggio gratuito nelle vie circostanti.</li>
+          <li><i class="fa-solid fa-check" aria-label="Checkmark"></i> {{ 'IN_BUS_TEXT' | translate }}</li>
+          <li><i class="fa-solid fa-check" aria-label="Checkmark"></i> {{ 'IN_CAR_TEXT' | translate }}</li>
         </ul>
       </section>
     </div>

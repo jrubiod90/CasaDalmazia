@@ -1,5 +1,6 @@
 declare const bootstrap: any;
 import { Component, HostListener } from "@angular/core";
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
 	selector: "navbar",
@@ -11,14 +12,20 @@ export class NavbarComponent {
 	isSmallScreen = window.innerWidth <= 992;
 	activeSection: string | null = null;
 
-	menuItems = [
-		{ label: "HOMEPAGE", link: "#home" },
-		{ label: "CHI SIAMO", link: "#about" },
-		{ label: "FOTO", link: "#gallery" },
-		{ label: "ATTIVITÀ", link: "#activities" },
-		{ label: "SERVIZI", link: "#services" },
-		{ label: "CONTATTI", link: "#contact" },
-	];
+menuItems = [
+    { label: 'HOMEPAGE', link: '#home' },
+    { label: 'CHI SIAMO', link: '#about' },
+    { label: 'FOTO', link: '#gallery' },
+    { label: 'ATTIVITÀ', link: '#activities' },
+    { label: 'SERVIZI', link: '#services' },
+    { label: 'CONTATTI', link: '#contact' },
+];
+
+languages = [
+  { code: 'it', label: 'Italiano', img: 'assets/images/italyFlag.svg' },
+  { code: 'es', label: 'Español', img: 'assets/images/spainFlag.png' },
+  { code: 'en', label: 'English', img: 'assets/images/unitedKingdomFlag.svg' }
+];
 
 	@HostListener("window:resize", ["$event"])
 	onResize(event: any) {
@@ -45,9 +52,17 @@ export class NavbarComponent {
 		this.showMenu = window.scrollY > 90;
 	}
 
-	constructor() {
-		this.onResize({ target: { innerWidth: window.innerWidth } });
-	}
+  constructor(public translate: TranslateService) {
+    this.translate.addLangs(this.languages.map(lang => lang.code));
+    this.translate.setDefaultLang('it');
+    this.translate.use('it');
+
+    this.onResize({ target: { innerWidth: window.innerWidth } });
+  }
+
+  changeLanguage(lang: string) {
+    this.translate.use(lang);
+  }
 
 	closeOffcanvas() {
 		const offcanvasElement = document.getElementById("offcanvasScrolling");

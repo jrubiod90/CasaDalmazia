@@ -5,13 +5,13 @@
         <div class="rounded-image" aria-hidden="true"></div>
       </div>
       <div class="right col-lg-7 col-md-9">
-        <h2 class="mb-4 text-start fw-bold">Chi siamo</h2>
+        <h2 class="mb-4 text-start fw-bold">{{ 'WHO_ARE_WE' | translate }}</h2>
         <p class="text-header px-3" style="max-width: 700px; margin: 0 auto; line-height: 1.6;">
-          Vi presentiamo i nostri due appartamenti di Casa Dalmazia, situati nel Cuore di Sottomarina, a 300 metri dal mare, 100 dalla laguna Veneta e 800 metri dal centro storico di Chioggia. La nostra struttura, completamente ristrutturata e molto luminosa, vi permetterà di godervi una vacanza all'insegna del relax, divertimento e cultura. Potrete spaziare tra le tipiche calli chioggiotte e marinanti, farvi avvolgere dalla vibrante vita notturna sul lungomare di Sottomarina, o gustare una deliziosa cena tipica chioggiotta nel pittoresco centro storico. Casa Dalmazia vi darà la possibilità di evitare ogni mezzo di trasporto, facendovi dimenticare quella vita frenetica che solo una rilassante vacanza può regalare.
+          {{ 'ABOUT_US_TEXT' | translate }}
         </p>
         <div class="mt-4">
-          <button *ngIf="localBooking" class="btn-medium" aria-label="Prenota ora" (click)="scrollTo('booking')">Prenota ora</button>
-          <button *ngIf="!localBooking" class="btn-medium" aria-label="Prenota ora" (click)="openLinkInNewTab()">Prenota ora</button>
+      <!--   <button *ngIf="localBooking" class="btn-medium" aria-label="Prenota ora" (click)="scrollTo('booking')">{{ 'BOOK_NOW' | translate }}</button> -->
+          <button class="btn-medium" aria-label="Prenota ora" (click)="scrollTo('contact')">{{ 'BOOK_NOW' | translate }}</button>
         </div>
       </div>
     </div>

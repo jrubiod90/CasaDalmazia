@@ -2,17 +2,17 @@
   <div class="container-center">
     <img src="assets/images/logoCasaDalmaziaRecortadoFinalWhite.png" alt="Logo Casa Dalmazia" class="logo-title">
     <h1 class="fw-bold">Casa Dalmazia</h1>
-    <h4 class="mb-3">Appartamenti turistici</h4>
+    <h4 class="mb-3">{{ 'WELCOME_SUBTITLE' | translate }}</h4>
     <p class="text-header px-3" style="max-width: 700px; margin: 0 auto; line-height: 1.6;">
-      Scopri la fuga perfetta nel cuore di Sottomarina, a due passi dal pittoresco centro storico di Chioggia. I nostri appartamenti, dallo stile moderno e luminoso, offrono un ambiente accogliente e rilassante, perfetto per coppie, famiglie e gruppi di amici. Sono la scelta ideale per chi desidera vivere il territorio in piena libertà, tra mare, cultura e tradizione.
+      {{ 'WELCOME_TEXT' | translate }}
     </p>
     <div class="row-buttons-container mt-4 d-flex justify-content-center flex-wrap">
       <div class="pe-2 ps-4 mb-3 m-0">
-        <button *ngIf="localBooking" class="btn-small" aria-label="Prenota ora" (click)="scrollTo('booking')">Prenota ora</button>
-        <button *ngIf="!localBooking" class="btn-small" aria-label="Prenota ora" (click)="openLinkInNewTab()">Prenota ora</button>
+      <!--   <button *ngIf="localBooking" class="btn-medium" aria-label="Prenota ora" (click)="scrollTo('booking')">{{ 'BOOK_NOW' | translate }}</button> -->
+          <button class="btn-medium" aria-label="Prenota ora" (click)="scrollTo('contact')">{{ 'BOOK_NOW' | translate }}</button>
       </div>
       <div class="ps-2 m-0 mb-3">
-        <button class="btn-white" aria-label="Scopri di più" (click)="scrollTo('gallery')">Scopri di più</button>
+        <button class="btn-white" aria-label="Scopri di più" (click)="scrollTo('gallery')">{{ 'DISCOVER_MORE' | translate }}</button>
       </div>
     </div>
   </div>

@@ -2,36 +2,36 @@
   <div class="container-center">
     <section class="row justify-content-between align-items-center">
       <div class="left text-start col-md-6 col-sm-12 mb-4">
-        <h2>Contatti</h2>
-        <p>Se hai domande o hai bisogno di maggiori informazioni sulla nostra casa vacanze a Casa Dalmazia, non esitare a contattarci. Siamo qui per aiutarti.</p>
-        <p>Puoi anche contattarci direttamente per telefono al numero <a href="tel:+34636530606" target="_blank">+34 636530606</a></p>
-        <button class="btn-white" aria-label="Contattaci su WhatsApp" (click)="openWhatsApp()">Scrivici su WhatsApp</button>
-        <button *ngIf="localBooking" class="btn-medium mt-3" aria-label="Prenota ora" (click)="scrollTo('booking')">Prenota ora</button>
-        <button *ngIf="!localBooking" class="btn-medium mt-3" aria-label="Prenota ora" (click)="openLinkInNewTab()">Prenota ora</button>
+        <h2>{{ 'CONTACT_TEXT' | translate }}</h2>
+        <p>{{ 'CONTACT2_TEXT' | translate }}</p>
+        <p>{{ 'CONTACT3_TEXT' | translate }}<a href="tel:+393760888410" target="_blank">+39 376 088 8410</a></p>
+        <button class="btn-white" aria-label="Contattaci su WhatsApp" (click)="openWhatsApp()">{{ 'WHATSAPP_TEXT' | translate }}</button>
+      <!--   <button *ngIf="localBooking" class="btn-medium" aria-label="Prenota ora" (click)="scrollTo('booking')">{{ 'BOOK_NOW' | translate }}</button> -->
+         <!--  <button class="btn-medium" aria-label="Prenota ora" (click)="scrollTo('contact')">{{ 'BOOK_NOW' | translate }}</button>-->
       </div>
 
       <div class="right text-start ps-3 col-md-6 col-sm-12">
         <form (ngSubmit)="sendEmail()">
           <div class="input-group">
-            <label for="name" class="text-input">Nome e cognome</label>
+            <label for="name" class="text-input">{{ 'NAME_TEXT' | translate }}</label>
             <input type="text" id="name" name="name" [(ngModel)]="name" />
           </div>
           <div class="input-group">
-            <label for="phone" class="text-input">Telefono</label>
+            <label for="phone" class="text-input">{{ 'PHONE_TEXT' | translate }}</label>
             <input type="text" id="phone" name="phone" [(ngModel)]="phone" />
           </div>
           <div class="input-group">
-            <label for="email" class="text-input">Email</label>
+            <label for="email" class="text-input">{{ 'EMAIL_TEXT' | translate }}</label>
             <input type="text" id="email" name="email" [(ngModel)]="email" />
           </div>
           <div class="input-group">
-            <label for="message" class="text-input">Messaggio</label>
+            <label for="message" class="text-input">{{ 'MESSAGE_TEXT' | translate }}</label>
             <textarea rows="6" id="message" name="message" [(ngModel)]="message"></textarea>
           </div>
           <div *ngIf="showMessage" [class.error]="isError" class="mb-3">
             {{ messageText }}
           </div>
-          <button type="submit" class="btn-big" aria-label="Invia">Invia</button>
+          <button type="submit" class="btn-big" aria-label="Invia">{{ 'SEND_TEXT' | translate }}</button>
         </form>
       </div>
     </section>

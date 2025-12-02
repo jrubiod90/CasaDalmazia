@@ -5,5 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './app-booking.component.html',
 })
 export class AppBookingComponent {
-  localBooking: boolean = true;
+  localBooking: boolean = false;
 }

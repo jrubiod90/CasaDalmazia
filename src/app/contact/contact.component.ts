@@ -56,7 +56,7 @@ error: (error) => {
 }
 
   openWhatsApp() {
-    const url = 'https://wa.me/+34662291676';
+    const url = 'https://wa.me/+393760888410';
     window.open(url, '_blank');
   }
 

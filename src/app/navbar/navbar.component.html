@@ -7,15 +7,13 @@
       <img src="assets/images/logoCasaDalmaziaRecortadoFinal.png" alt="Logo" class="logo-img">
     </a>
 
-	<!-- Menu for larger screens -->
-	<ul class="menu-big p-0" [ngStyle]="{ display: !isSmallScreen ? 'flex' : 'none' }">
-		<li *ngFor="let item of menuItems">
-			<a [href]="item.link" [class.active]="activeSection === item.link.slice(1)" tabindex="0">
-				{{ item.label }}
-			</a>
-		</li>
-	</ul>
-</nav>
+	<!-- <div class="language-switcher" style="margin-left: 20px;">
+  <button (click)="changeLanguage('it')">🇮🇹</button>
+  <button (click)="changeLanguage('es')">🇪🇸</button>
+  <button (click)="changeLanguage('en')">🇬🇧</button>
+</div> -->
+
+
 
 <!-- Offcanvas for smaller screens -->
 <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
@@ -28,8 +26,26 @@
 		<ul class="menu-small">
 			<li *ngFor="let item of menuItems" class="mb-3">
 				<a [href]="item.link" [class.active]="activeSection === item.link.slice(1)"
-					(click)="closeOffcanvas()">{{ item.label }}</a>
+					(click)="closeOffcanvas()">{{ item.label | translate }}</a>
 			</li>
 		</ul>
 	</div>
 </div>
+
+<div class="language-switcher" style="margin-left: 20px;">
+  <button *ngFor="let lang of languages" 
+          (click)="changeLanguage(lang.code)"
+          [class.active]="translate.currentLang === lang.code">
+    <img [src]="lang.img" [alt]="lang.label" style="width: 24px; height: 24px;">
+  </button>
+</div>
+
+	<!-- Menu for larger screens -->
+	<ul class="menu-big p-0" [ngStyle]="{ display: !isSmallScreen ? 'flex' : 'none' }">
+		<li *ngFor="let item of menuItems">
+			<a [href]="item.link" [class.active]="activeSection === item.link.slice(1)" tabindex="0">
+				{{ item.label | translate }}
+			</a>
+		</li>
+	</ul>
+</nav>
