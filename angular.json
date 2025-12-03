@@ -54,7 +54,7 @@
                 }
               ],,
               "outputHashing": "all",
-			  "baseHref": "/CasaDalmazia/"
+			  "baseHref": "/"
             },
             "development": {
               "buildOptimizer": false,
