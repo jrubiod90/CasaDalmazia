@@ -20,14 +20,16 @@
     "@angular/platform-browser": "^15.2.0",
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
+    "@ngx-translate/core": "^14.0.0",
+    "@ngx-translate/http-loader": "^7.0.0",
     "@stripe/stripe-js": "^2.1.6",
     "bootstrap": "^5.3.7",
     "ngx-gallery-9": "^1.0.6",
     "ngx-lightbox": "^3.0.0",
     "nodemailer": "^6.9.5",
-    "pdfmake": "^0.2.7",
+    "pdfmake": "^0.2.20",
     "rxjs": "~7.8.0",
-    "tslib": "^2.3.0",
+    "tslib": "^1.14.1",
     "zone.js": "~0.12.0"
   },
   "devDependencies": {

@@ -1,23 +1,21 @@
-import { Component, Input, ElementRef, ViewChild } from '@angular/core';
+import { Component, Input, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { Booking } from '../../../shared/booking';
 import { ScrollService } from '../../../scroll.service';
 import { DatePipe } from '@angular/common';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'invoice-img',
   templateUrl: './invoice-img.component.html',
   styleUrls: ['./invoice-img.component.css'],
 })
-export class InvoiceImgComponent {
+export class InvoiceImgComponent implements OnInit {
   @Input() bookingDetails!: Booking;
   @Input() toPrint!: boolean;
   @Input() bookingId!: number;
   @ViewChild('pdfContent', { static: false }) pdfContent!: ElementRef;
 
-  // Current date
   today = new Date();
   formatToday = this.datePipe.transform(this.today, 'dd-MM-yyyy');
 
@@ -26,12 +24,19 @@ export class InvoiceImgComponent {
     private datePipe: DatePipe
   ) {}
 
-  // Scroll to a specified section
+  ngOnInit() {
+    // Asegurarse de que pdfMake.vfs esté disponible antes de usarlo
+    if (pdfMake && pdfFonts && pdfFonts.pdfMake) {
+      pdfMake.vfs = pdfFonts.pdfMake.vfs;
+    } else {
+      console.error('Error: pdfMake o vfs_fonts no están correctamente cargados.');
+    }
+  }
+
   scrollTo(sectionId: string) {
     this.scrollService.scrollToSection(sectionId);
   }
 
-  // Generate and download the PDF
   generateAndDownloadPDF() {
     const pdfDefinition: any = {
       info: {
