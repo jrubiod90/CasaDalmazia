@@ -66,6 +66,12 @@ MIT
 @angular/router
 MIT
 
+@ngx-translate/core
+MIT
+
+@ngx-translate/http-loader
+MIT
+
 bootstrap
 MIT
 The MIT License (MIT)
@@ -139,7 +145,7 @@ MIT
 The MIT License (MIT)
 
 Copyright (c) 2014-2015 bpampuch
-              2016-2022 liborm85
+              2016-2025 liborm85
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
