@@ -66,5 +66,7 @@
   "PHONE_TEXT": "Phone",
   "EMAIL_TEXT": "Email",
   "MESSAGE_TEXT": "Message",
-  "SEND_TEXT": "Send"
+  "SEND_TEXT": "Send",
+  "FORMSEND_SUCCESS": "Message sent, we will contact you as soon as possible",
+  "FORMSEND_ERROR": "An error has occurred, please try calling us or write to us on WhatsApp."
 }

@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { ScrollService } from '../scroll.service';
-
+import emailjs from 'emailjs-com';
 
 @Component({
   selector: 'contact',
@@ -18,42 +17,48 @@ export class ContactComponent {
 
   showMessage: boolean = false;
   isError: boolean = false;
-  messageText: string = '';
+  messageText: string = ''; // aquí guardaremos la clave, no el texto traducido
 
-  constructor(private http: HttpClient, private scrollService: ScrollService) {}
+  constructor(private scrollService: ScrollService) {}
 
   sendEmail() {
-    const datos = {
+    const templateParams = {
       name: this.name,
       phone: this.phone,
       email: this.email,
       message: this.message,
-      subject: "Richiesta generica Casa Dalmazia"
+      subject: 'Richiesta generica Casa Dalmazia',
     };
 
-  this.http.post('https://emailapi-production-d4cd.up.railway.app/email/send-email', datos).subscribe({
-next: (response) => {
-  console.log('Email inviata con successo', response);
-  this.isError = false;
-  this.messageText = 'Messaggio inviato, ti contatteremo al più presto.';
-},
-error: (error) => {
-  console.error('Errore durante l\'invio dell\'email', error);
-  this.isError = true;
-  this.messageText = 'Si è verificato un errore, prova a chiamarci.';
-},
-  });
+    emailjs
+      .send(
+        'service_c2es7y7', // ID del servicio configurado en EmailJS
+        'template_0tv3uka', // ID de la plantilla creada en EmailJS
+        templateParams,
+        'WIU45eX1aE0qkhOEG' // Tu clave pública de EmailJS
+      )
+      .then((response) => {
+        console.log('Email inviato con successo', response);
+        this.isError = false;
+        this.messageText = 'FORMSEND_SUCCESS'; // 👈 guardamos la clave
+      })
+      .catch((error) => {
+        console.error('Error durante el envío del email', error);
+        this.isError = true;
+        this.messageText = 'FORMSEND_ERROR'; // 👈 guardamos la clave
+      });
 
-  this.showMessage = true;
-  setTimeout(() => {
-    this.showMessage = false;
-  }, 4000);
+    this.showMessage = true;
+    setTimeout(() => {
+      this.showMessage = false;
+    }, 4000);
 
-  this.name = '';
-  this.phone = '';
-  this.email = '';
-  this.message = '';
-}
+    // limpiar campos
+    this.name = '';
+    this.phone = '';
+    this.email = '';
+    this.message = '';
+  }
 
   openWhatsApp() {
     const url = 'https://wa.me/+393760888410';

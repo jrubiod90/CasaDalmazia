@@ -29,7 +29,7 @@
             <textarea rows="6" id="message" name="message" [(ngModel)]="message"></textarea>
           </div>
           <div *ngIf="showMessage" [class.error]="isError" class="mb-3">
-            {{ messageText }}
+            {{ messageText | translate }}
           </div>
           <button type="submit" class="btn-big" aria-label="Invia">{{ 'SEND_TEXT' | translate }}</button>
         </form>
